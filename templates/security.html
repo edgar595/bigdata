@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to Access the Machine Learning Model</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+
+    <div class="black-background">
+        <div class="centered-content">
+            <h1>Enter the Key to Access the Machine Learning Model(1234)</h1>
+            <form method="POST" action="/authenticate">
+                <label for="security-key">Security Key:</label>
+                <input type="password" id="security-key" name="security_key">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+
+</body>
+</html>
+
