@@ -9,10 +9,18 @@ import dash_table
 import math
 import datetime
 import joblib
+import requests
+from io import BytesIO
 
-# Load the transformed DataFrame (replace with your data source)
-file_path = "C:/Users/USER/OneDrive/Desktop/data analysis/Python/bigdata/transformed_data.xlsx"
-transformed_df = pd.read_excel(file_path)
+# GitHub raw content URL for your Excel file
+github_raw_url = "https://raw.githubusercontent.com/edgar595/bigdata/main/transformed_data.xlsx"
+
+# Download the file content from GitHub
+response = requests.get(github_raw_url)
+excel_content = response.content
+
+# Read the Excel file directly from the content
+transformed_df = pd.read_excel(BytesIO(excel_content))
 
 # Columns to be used for prediction
 selected_columns = ['Average_Goals_Scored', 'Average_Goals_Conceded', 'Elo Rating']
